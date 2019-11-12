@@ -1,0 +1,36 @@
+ .picture {
+    width:500px;
+    height:230px;
+    background-color:#d9d9d9;
+    position:fixed;
+    border: none;
+    margin-left:auto; /* half of width */
+    margin-top:auto;  /* half of height */
+    top:60%;
+    left:40%;
+ }
+ 
+ .table {
+    width:50%;
+    height:40%;
+    position:fixed;
+    border: solid;
+    margin-left:auto; /* half of width */
+    margin-top:auto;  /* half of height */
+    top:20%;
+    left:25%;
+
+     
+ }
+ 
+ .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
