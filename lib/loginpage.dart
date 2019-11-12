@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
+import 'package:myetrash/registrationscreen.dart';
+import 'package:http/http.dart' as http;
+import 'package:progress_dialog/progress_dialog.dart';
+import 'package:myetrash/mainscreen.dart';
+import 'package:myetrash/forgotpw.dart';
+
+String urlLogin = "http://itschizo.com/emily_siew/myETrash/php/login_admin.php";
 
 bool _isChecked = true;
 final TextEditingController _emcontroller = TextEditingController();
@@ -97,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                 GestureDetector(
                     onTap: _onForgot,
                     child:
-                        Text('Forgot Account', 
+                        Text('Forgot Password', 
                         style: TextStyle(fontSize: 16,color: Colors.blue),
                         ),
                         ),
@@ -116,11 +124,31 @@ class _LoginPageState extends State<LoginPage> {
     print(_email);
     print(_pass);
     if (_checkEmail(_email) && _pass.length > 5) {
-      print('Successful Login');
+      ProgressDialog pr = new ProgressDialog(context, 
+        type: ProgressDialogType.Normal, isDismissible: false);
+      pr.style(message: "Login in");
+      pr.show();
+      http.post(urlLogin, body: {
+        "email": _email,
+        "password": _pass,
+      }).then((res){
+        print(res.statusCode);
+        Toast.show(res.body, context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+        if (res.body == "success") {
+          pr.dismiss();
+          Navigator.push(context, MaterialPageRoute(builder: (context) => MainScreen()));
+        }else{
+          pr.dismiss();
+        }
+      }).catchError((err) {
+        pr.dismiss();
+        print(err);
+      });
     } else {
-      print('Login Failed');
+      Toast.show("Invalid email or password", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
     }
-    
   }
 
   void _onChange(bool value) {
@@ -139,10 +167,16 @@ class _LoginPageState extends State<LoginPage> {
 
   void _onRegister() {
     print('onRegister');
+    Navigator.push(
+      context, MaterialPageRoute(builder: (context)=>RegisterScreen())
+    );
   }
 
   void _onForgot() {
     print('Forgot');
+    Navigator.push(
+      context, MaterialPageRoute(builder: (context)=>ForgotpwScreen())
+    );
   }
 
   void savePref(bool value) async {
@@ -199,4 +233,5 @@ class _LoginPageState extends State<LoginPage> {
       });
     }
   }
+
 }
