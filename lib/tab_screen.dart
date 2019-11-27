@@ -199,6 +199,10 @@ class _TabScreenState extends State<TabScreen> {
                     return Padding(
                       padding: EdgeInsets.all(2.0),
                       child: Card(
+                        shape: Border(
+                          right: BorderSide(color: Colors.green[200], width:5),
+                          bottom: BorderSide(color: Colors.green[200], width: 1)
+                        ),
                         elevation: 2,
                         child: InkWell(
                           onTap: () => _onETrashDetail(
@@ -226,7 +230,7 @@ class _TabScreenState extends State<TabScreen> {
                                     width: 100,
                                     decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-                                        border: Border.all(color: Colors.white),
+                                        border: Border.all(color: Colors.green[100],width: 3),
                                         image: DecorationImage(
                                             fit: BoxFit.fill,
                                             image: NetworkImage(

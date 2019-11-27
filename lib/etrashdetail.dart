@@ -93,6 +93,12 @@ class _DetailInterfaceState extends State<DetailInterface> {
       children: <Widget>[
         Center(),
         Container(
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.black,
+              width: 2.0,
+            ),
+          ),
           width: 280,
           height: 200,
           child: Image.network(
@@ -119,17 +125,17 @@ class _DetailInterfaceState extends State<DetailInterface> {
               ),
               Table(children: [
                 TableRow(children: [
-                  Text("ETrash Description",
+                  Text("ETrash Description : ",
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   Text(widget.etrash.etdesc),
                 ]),
                 TableRow(children: [
-                  Text("ETrash Price",
+                  Text("ETrash Price : ",
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   Text("RM" + widget.etrash.etprice),
                 ]),
                 TableRow(children: [
-                  Text("ETrash Location",
+                  Text("ETrash Location : ",
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   Text("")
                 ]),
@@ -152,18 +158,19 @@ class _DetailInterfaceState extends State<DetailInterface> {
                   },
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 30),
               Container(
+                alignment: Alignment.center,
                 width: 350,
                 child: MaterialButton(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0)),
+                      borderRadius: BorderRadius.circular(20.0)),
                   height: 40,
                   child: Text(
                     'ACCEPT ETRASH',
                     style: TextStyle(fontSize: 16),
                   ),
-                  color: Colors.green,
+                  color: Colors.green[200],
                   textColor: Colors.white,
                   elevation: 5,
                   onPressed: _onAcceptET,
