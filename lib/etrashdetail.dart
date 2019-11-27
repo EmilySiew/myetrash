@@ -225,12 +225,12 @@ class _DetailInterfaceState extends State<DetailInterface> {
   }
 
   Future<String> acceptRequest() async {
-    String urlLoadJobs = "http://slumberjer.com/myhelper/php/accept_job.php";
+    String urlLoadETs = "http://itschizo.com/emily_siew/myETrash/php/accept_etrash.php";
     ProgressDialog pr = new ProgressDialog(context,
         type: ProgressDialogType.Normal, isDismissible: false);
     pr.style(message: "Accepting ETrash");
     pr.show();
-    http.post(urlLoadJobs, body: {
+    http.post(urlLoadETs, body: {
       "ETrashid": widget.etrash.etid,
       "email": widget.user.email,
       "credit": widget.user.credit,
@@ -254,7 +254,7 @@ class _DetailInterfaceState extends State<DetailInterface> {
   }
 
    void _onLogin(String email, BuildContext ctx) {
-     String urlgetuser = "http://slumberjer.com/myhelper/php/get_user.php";
+     String urlgetuser = "http://itschizo.com/emily_siew/myETrash/php/get_user.php";
 
     http.post(urlgetuser, body: {
       "email": email,

@@ -1,4 +1,4 @@
-/*import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 //import 'package:flutter/semantics.dart';
 import 'package:myetrash/loginpage.dart';
 import 'dart:io';
@@ -217,4 +217,4 @@ class RegisterWidgetState extends State<RegisterWidget> {
   _isEmailValid(String email) {
     return RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(email);
   }
-}*/
+}

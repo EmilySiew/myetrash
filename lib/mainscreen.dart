@@ -59,10 +59,10 @@ class _MainScreenState extends State<MainScreen> {
             icon: Icon(Icons.list, color: Colors.green),
             title: Text("Posted ETrash"),
           ),
-          /*BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.event, color: Colors.green),
             title: Text("My ETrash"),
-          ),*/
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person, color: Colors.green),
             title: Text("Profile"),

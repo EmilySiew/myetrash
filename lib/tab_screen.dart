@@ -8,9 +8,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:myetrash/etrash.dart';
-//import 'package:myetrash/etrashdetail.dart';
 import 'package:flutter/cupertino.dart';
-//import 'package:myetrash/mainscreen.dart';
 import 'package:myetrash/SlideRightRoute.dart';
 
 double perpage = 1;
@@ -257,7 +255,7 @@ class _TabScreenState extends State<TabScreen> {
                                             color: Colors.amber,
                                           ),
                                           onRatingUpdate:
-                                              (double value) {}, //???
+                                              (double value) {}, 
                                         ),
                                         SizedBox(
                                           height: 5,
@@ -313,12 +311,12 @@ class _TabScreenState extends State<TabScreen> {
   }
 
   Future<String> makeRequest() async {
-    String urlLoadJobs = "http://itschizo.com/emily_siew/myETrash/php/load_etrash.php";
+    String urlLoadETs = "http://itschizo.com/emily_siew/myETrash/php/load_etrash.php";
     ProgressDialog pr = new ProgressDialog(context,
         type: ProgressDialogType.Normal, isDismissible: false);
     pr.style(message: "Loading ETrash");
     pr.show();
-    http.post(urlLoadJobs, body: {
+    http.post(urlLoadETs, body: {
       "email": widget.user.email ?? "notavail",
       "latitude": _currentPosition.latitude.toString(),
       "longitude": _currentPosition.longitude.toString(),

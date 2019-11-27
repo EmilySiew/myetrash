@@ -158,7 +158,7 @@ class _ProgressIndicatorState extends State<ProgressIndicator>
           name: "not register",
           email: "user@noregister",
           phone: "not register",
-          radius: "6370",
+          radius: "15",
           credit: "0",
           rating: "0");
       Navigator.push(
