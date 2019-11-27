@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'package:myetrash/loginpage.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:http/http.dart' as http;
@@ -117,4 +117,4 @@ class _ForgotpwState extends State<ForgotpwScreen> {
         RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(_email);
     return emailValid;
   }
-}
+}*/

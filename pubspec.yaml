@@ -32,8 +32,11 @@ dev_dependencies:
   image_picker:
   http:
   progress_dialog:
-
-
+  flutter_rating_bar:
+  geolocator:
+  google_maps_flutter:
+  place_picker:
+  
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
