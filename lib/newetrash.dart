@@ -12,26 +12,26 @@ import 'package:progress_dialog/progress_dialog.dart';
 import 'package:place_picker/place_picker.dart';
 File _image;
 String pathAsset = 'assets/images/sliverwork.jpg';
-String urlUpload = "http://slumberjer.com/myhelper/php/upload_job.php";
-String urlgetuser = "http://slumberjer.com/myhelper/php/get_user.php";
+String urlUpload = "http://itschizo.com/emily_siew/myETrash/php/upload_etrash.php";
+String urlgetuser = "http://itschizo.com/emily_siew/myETrash/php/get_user.php";
 
-final TextEditingController _jobcontroller = TextEditingController();
+final TextEditingController _etcontroller = TextEditingController();
 final TextEditingController _desccontroller = TextEditingController();
 final TextEditingController _pricecontroller = TextEditingController();
 final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
 Position _currentPosition;
 String _currentAddress = "Searching your current location...";
 
-class NewJob extends StatefulWidget {
+class NewETrash extends StatefulWidget {
   final User user;
 
-  const NewJob({Key key, this.user}) : super(key: key);
+  const NewETrash({Key key, this.user}) : super(key: key);
 
   @override
-  _NewJobState createState() => _NewJobState();
+  _NewETrashState createState() => _NewETrashState();
 }
 
-class _NewJobState extends State<NewJob> {
+class _NewETrashState extends State<NewETrash> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -45,7 +45,7 @@ class _NewJobState extends State<NewJob> {
           body: SingleChildScrollView(
             child: Container(
               padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
-              child: CreateNewJob(widget.user),
+              child: CreateNewETrash(widget.user),
             ),
           )),
     );
@@ -63,15 +63,15 @@ class _NewJobState extends State<NewJob> {
   }
 }
 
-class CreateNewJob extends StatefulWidget {
+class CreateNewETrash extends StatefulWidget {
   final User user;
-  CreateNewJob(this.user);
+  CreateNewETrash(this.user);
 
   @override
-  _CreateNewJobState createState() => _CreateNewJobState();
+  _CreateNewETrashState createState() => _CreateNewETrashState();
 }
 
-class _CreateNewJobState extends State<CreateNewJob> {
+class _CreateNewETrashState extends State<CreateNewETrash> {
   String defaultValue = 'Pickup';
   @override
   void initState() {
@@ -95,19 +95,19 @@ class _CreateNewJobState extends State<CreateNewJob> {
                 fit: BoxFit.fill,
               )),
             )),
-        Text('Click on image above to take job picture'),
+        Text('Click on image above to take etrash picture'),
         TextField(
-            controller: _jobcontroller,
+            controller: _etcontroller,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
-              labelText: 'Job Title',
+              labelText: 'ETrash Title',
               icon: Icon(Icons.title),
             )),
         TextField(
             controller: _pricecontroller,
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
-              labelText: 'Job Price',
+              labelText: 'ETrash Price',
               icon: Icon(Icons.attach_money),
             )),
         TextField(
@@ -116,7 +116,7 @@ class _CreateNewJobState extends State<CreateNewJob> {
             textInputAction: TextInputAction.previous,
             maxLines: 3,
             decoration: InputDecoration(
-              labelText: 'Job Description',
+              labelText: 'ETrash Description',
               icon: Icon(Icons.info),
             )),
         SizedBox(
@@ -126,7 +126,7 @@ class _CreateNewJobState extends State<CreateNewJob> {
             onTap: _loadmap,
             child: Container(
               alignment: Alignment.topLeft,
-              child: Text("Job Location",
+              child: Text("ETrash Location",
                   style: TextStyle(
                       fontWeight: FontWeight.bold)),
             )),
@@ -150,11 +150,11 @@ class _CreateNewJobState extends State<CreateNewJob> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
           minWidth: 300,
           height: 50,
-          child: Text('Request New Job'),
+          child: Text('Request New ETrash'),
           color: Colors.deepOrangeAccent,
           textColor: Colors.white,
           elevation: 15,
-          onPressed: _onAddJob,
+          onPressed: _onAddETrash,
         ),
       ],
     );
@@ -167,19 +167,19 @@ class _CreateNewJobState extends State<CreateNewJob> {
     //_image = await ImagePicker.pickImage(source: ImageSource.gallery);
   }
 
-  void _onAddJob() {
+  void _onAddETrash() {
     if (_image == null) {
       Toast.show("Please take picture", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       return;
     }
-    if (_jobcontroller.text.isEmpty) {
-      Toast.show("Please enter job title", context,
+    if (_etcontroller.text.isEmpty) {
+      Toast.show("Please enter etrash title", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       return;
     }
     if (_pricecontroller.text.isEmpty) {
-      Toast.show("Please enter job price", context,
+      Toast.show("Please enter etrash price", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       return;
     }
@@ -195,9 +195,9 @@ class _CreateNewJobState extends State<CreateNewJob> {
     http.post(urlUpload, body: {
       "encoded_string": base64Image,
       "email": widget.user.email,
-      "jobtitle": _jobcontroller.text,
-      "jobdesc": _desccontroller.text,
-      "jobprice": _pricecontroller.text,
+      "ettitle": _etcontroller.text,
+      "etdesc": _desccontroller.text,
+      "etprice": _pricecontroller.text,
       "latitude": _currentPosition.latitude.toString(),
       "longitude": _currentPosition.longitude.toString(),
       "credit": widget.user.credit,
@@ -208,7 +208,7 @@ class _CreateNewJobState extends State<CreateNewJob> {
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       if (res.body.contains("success")) {
         _image = null;
-        _jobcontroller.text = "";
+        _etcontroller.text = "";
         _pricecontroller.text = "";
         _desccontroller.text = "";
         pr.dismiss();

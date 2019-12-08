@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:myetrash/mainscreen.dart';
 import 'package:myetrash/forgotpw.dart';
+import 'user.dart';
 
 String urlLogin = "http://itschizo.com/emily_siew/myETrash/php/login_admin.php";
 
@@ -15,6 +16,18 @@ final TextEditingController _emcontroller = TextEditingController();
 String _email = "";
 final TextEditingController _pscontroller = TextEditingController();
 String _pass = "";
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: LoginPage(),
+    );
+  }
+}
+
 
 class LoginPage extends StatefulWidget {
   @override
@@ -25,6 +38,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     _loadpref();
+    print('Init: $_email');
     super.initState();
   }
 
@@ -133,11 +147,17 @@ class _LoginPageState extends State<LoginPage> {
         "password": _pass,
       }).then((res){
         print(res.statusCode);
-        Toast.show(res.body, context,
+        var string = res.body;
+        List dres = string.split(",");
+        print(dres);
+        Toast.show(dres[0], context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-        if (res.body == "success") {
+        if (dres[0] == "success") {
           pr.dismiss();
-          Navigator.push(context, MaterialPageRoute(builder: (context) => MainScreen()));
+          print("Radius:");
+          print(dres);
+          User user = new User(name: dres[1],email:dres[2],phone:dres[3],radius:dres[4],credit:dres[5],rating:dres[6]);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => MainScreen(user: user)));
         }else{
           pr.dismiss();
         }
@@ -228,6 +248,7 @@ class _LoginPageState extends State<LoginPage> {
         _isChecked = true;
       });
     } else {
+      print('No pref');
       setState(() {
         _isChecked = false;
       });

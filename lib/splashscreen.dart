@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
 String _email, _password;
-String urlLogin = "http://slumberjer.com/myhelper/php/login_user.php";
+String urlLogin = "http://itschizo.com/emily_siew/myETrash/php/login_admin.php";
 
 void main() => runApp(SplashScreen());
 

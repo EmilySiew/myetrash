@@ -36,6 +36,12 @@ dev_dependencies:
   geolocator:
   google_maps_flutter:
   place_picker:
+  flutter_slidable:
+  dropdownfield:
+  webview_flutter:
+  url_launcher:
+  intl:
+  random_string:
   
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
