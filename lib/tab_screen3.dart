@@ -62,7 +62,7 @@ class _TabScreen3State extends State<TabScreen3> {
                               child: Image.asset(
                                 "assets/images/background.PNG",
                                 fit: BoxFit.fitWidth,
-                                height: 130,
+                                height: 200,
                                 width: 500,
                               ),
                               ),
@@ -76,10 +76,11 @@ class _TabScreen3State extends State<TabScreen3> {
                                         style: TextStyle(
                                             fontSize: 24,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white)),
+                                            color: Colors.green)),
                                   ),
                                   SizedBox(height: 10),
                                   Container(
+                                    color: Colors.lightGreenAccent[100],
                                     width: 300,
                                     height: 140,
                                     child: Card(
@@ -161,7 +162,7 @@ class _TabScreen3State extends State<TabScreen3> {
                               height: 4,
                             ),
                             Container(
-                              color: Colors.green,
+                              color: Colors.grey,
                               child: Center(
                                 child: Text("My Accepted ETrash ",
                                     style: TextStyle(
