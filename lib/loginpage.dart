@@ -11,7 +11,7 @@ import 'user.dart';
 
 String urlLogin = "http://itschizo.com/emily_siew/myETrash/php/login_admin.php";
 
-bool _isChecked = true;
+bool _isChecked = false;
 final TextEditingController _emcontroller = TextEditingController();
 String _email = "";
 final TextEditingController _pscontroller = TextEditingController();
@@ -241,7 +241,7 @@ class _LoginPageState extends State<LoginPage> {
     _pass = (prefs.getString('pass'));
     print(_email);
     print(_pass);
-    if (_email.length > 1) {
+    if (_email.length>1) {
       _emcontroller.text = _email;
       _pscontroller.text = _pass;
       setState(() {
