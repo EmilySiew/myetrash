@@ -11,7 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:place_picker/place_picker.dart';
 File _image;
-String pathAsset = 'assets/images/sliverwork.jpg';
+String pathAsset = 'assets/images/border.png';
 String urlUpload = "http://itschizo.com/emily_siew/myETrash/php/upload_etrash.php";
 String urlgetuser = "http://itschizo.com/emily_siew/myETrash/php/get_user.php";
 
@@ -40,7 +40,7 @@ class _NewETrashState extends State<NewETrash> {
           //resizeToAvoidBottomPadding: false,
           appBar: AppBar(
             title: Text('REQUEST HELP'),
-            backgroundColor: Colors.deepOrange,
+            backgroundColor: Colors.green,
           ),
           body: SingleChildScrollView(
             child: Container(
@@ -151,7 +151,7 @@ class _CreateNewETrashState extends State<CreateNewETrash> {
           minWidth: 300,
           height: 50,
           child: Text('Request New ETrash'),
-          color: Colors.deepOrangeAccent,
+          color: Colors.green,
           textColor: Colors.white,
           elevation: 15,
           onPressed: _onAddETrash,
