@@ -71,6 +71,8 @@ class _TabScreen4State extends State<TabScreen4> {
                           child: Image.asset(
                             "assets/images/background.PNG",
                             fit: BoxFit.fitWidth,
+                            height:350,
+                            width:500,
                           ),
                           ),
                           Column(
@@ -80,7 +82,7 @@ class _TabScreen4State extends State<TabScreen4> {
                                     style: TextStyle(
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
+                                        color: Colors.green)),
                               ),
                               SizedBox(
                                 height: 5,
