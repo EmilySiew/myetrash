@@ -238,7 +238,7 @@ class _DetailInterfaceState extends State<DetailInterface> {
     pr.style(message: "Accepting ETrash");
     pr.show();
     http.post(urlLoadETs, body: {
-      "ETrashid": widget.etrash.etid,
+      "etid": widget.etrash.etid,
       "email": widget.user.email,
       "credit": widget.user.credit,
     }).then((res) {
