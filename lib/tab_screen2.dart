@@ -71,7 +71,7 @@ class _TabScreen2State extends State<TabScreen2> {
                               child: Image.asset(
                                 "assets/images/background.PNG",
                                 fit: BoxFit.fitWidth,
-                                height: 130,
+                                height: 200,
                                 width: 500,
                               ),
                               ),
@@ -85,10 +85,11 @@ class _TabScreen2State extends State<TabScreen2> {
                                         style: TextStyle(
                                             fontSize: 24,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white)),
+                                            color: Colors.green)),
                                   ),
                                   SizedBox(height: 10),
                                   Container(
+                                    color: Colors.lightGreenAccent[100],
                                     width: 300,
                                     height: 140,
                                     child: Card(
@@ -170,7 +171,7 @@ class _TabScreen2State extends State<TabScreen2> {
                               height: 4,
                             ),
                             Container(
-                              color: Colors.green,
+                              color: Colors.grey,
                               child: Center(
                                 child: Text("Your Posted ETrash ",
                                     style: TextStyle(
@@ -214,12 +215,11 @@ class _TabScreen2State extends State<TabScreen2> {
                                   width: 100,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                      border: Border.all(color: Colors.white),
+                                      border: Border.all(color: Colors.green[100],width:3),
                                       image: DecorationImage(
                                     fit: BoxFit.fill,
                                     image: NetworkImage(
-                                    "http://itschizo.com/emily_siew/myETrash/images/${data[index]['etimage']}"
-                                  )))),
+                                      "http://itschizo.com/emily_siew/myETrash/images/${data[index]['etimage']}")))),
                                 Expanded(
                                   child: Container(
                                     child: Column(
@@ -301,7 +301,7 @@ class _TabScreen2State extends State<TabScreen2> {
     String urlLoadETrash = "http://itschizo.com/emily_siew/myETrash/php/load_etrash_user.php";
      ProgressDialog pr = new ProgressDialog(context,
         type: ProgressDialogType.Normal, isDismissible: false);
-        pr.style(message: "Loading All Accepted ETrash");
+        pr.style(message: "Loading All Posted ETrash");
     pr.show();
     http.post(urlLoadETrash, body: {
       "email": widget.user.email ?? "notavail",
@@ -309,7 +309,7 @@ class _TabScreen2State extends State<TabScreen2> {
     }).then((res) {
       setState(() {
         var extractdata = json.decode(res.body);
-        data = extractdata["etrashs"];
+        data = extractdata["etrash"];
         perpage = (data.length / 10);
         print("data");
         print(data);
