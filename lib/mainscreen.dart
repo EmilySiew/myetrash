@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:myetrash/tab_screen2.dart';
 import 'package:myetrash/tab_screen3.dart';
@@ -45,13 +46,29 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return new Scaffold(   
       body: tabs[currentTabIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: onTapped,
-        currentIndex: currentTabIndex,
-        type: BottomNavigationBarType.fixed,
+      bottomNavigationBar: CurvedNavigationBar(
+        height: 55,
+        //currentIndex: 0,
+        items: <Widget>[
+          Icon(Icons.search, size: 30),
+          Icon(Icons.list, size: 30),
+          Icon(Icons.event, size: 30),
+          Icon(Icons.person, size: 30)
+        ],
+        color: Colors.green[100],
+        buttonBackgroundColor: Colors.green[200],
+        backgroundColor: Colors.white,
+        animationCurve: Curves.easeInOutBack,
+        animationDuration: Duration(milliseconds: 500),
+        onTap : onTapped 
+        //currentIndex: currentTabIndex,
 
-        items: [
-          BottomNavigationBarItem(
+        //onTap: onTapped,
+        //currentIndex: currentTabIndex,
+        //type: BottomNavigationBarType.fixed,
+
+        /*items: [
+          CurvedNavigationBarItem(
             icon: Icon(Icons.search, color: Colors.green),
             title: Text("ETrash"),
           ),
@@ -67,7 +84,7 @@ class _MainScreenState extends State<MainScreen> {
             icon: Icon(Icons.person, color: Colors.green),
             title: Text("Profile"),
           )
-        ],
+        ],*/
       ),
     );
   }
