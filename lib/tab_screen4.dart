@@ -16,13 +16,12 @@ import 'package:toast/toast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:random_string/random_string.dart';
- 
 
- 
 String urlgetuser = "http://itschizo.com/emily_siew/myETrash/php/get_user.php";
 String urluploadImage =
     "http://itschizo.com/emily_siew/myETrash/php/upload_imageprofile.php";
-String urlupdate = "http://itschizo.com/emily_siew/myETrash/php/update_profile.php";
+String urlupdate =
+    "http://itschizo.com/emily_siew/myETrash/php/update_profile.php";
 File _image;
 int number = 0;
 String _value;
@@ -53,7 +52,7 @@ class _TabScreen4State extends State<TabScreen4> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: Colors.green));
+        SystemUiOverlayStyle(statusBarColor: Colors.black));
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
@@ -68,24 +67,24 @@ class _TabScreen4State extends State<TabScreen4> {
                       children: <Widget>[
                         Stack(children: <Widget>[
                           Container(
-                          child: Image.asset(
-                            "assets/images/background.PNG",
-                            fit: BoxFit.fitWidth,
-                            height:350,
-                            width:500,
-                          ),
+                            child: Image.asset(
+                              "assets/images/background1.jpg",
+                              fit: BoxFit.fitWidth,
+                              height: 130,
+                              width: 500,
+                            ),
                           ),
                           Column(
                             children: <Widget>[
-                              Center(
+                              /*Center(
                                 child: Text("MyETrash",
                                     style: TextStyle(
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.green)),
-                              ),
+                                        color: Colors.white)),
+                              ),*/
                               SizedBox(
-                                height: 5,
+                                height: 40,
                               ),
                               GestureDetector(
                                 onTap: _takePicture,
@@ -94,11 +93,11 @@ class _TabScreen4State extends State<TabScreen4> {
                                     height: 150.0,
                                     decoration: new BoxDecoration(
                                         shape: BoxShape.circle,
-                                        border: Border.all(color: Colors.white),
+                                        border: Border.all(
+                                            color: Colors.white, width: 5.0),
                                         image: new DecorationImage(
                                             fit: BoxFit.cover,
                                             image: new NetworkImage(
-                                              
                                                 "http://itschizo.com/emily_siew/myETrash/profile/${widget.user.email}.jpg")))),
                               ),
                               SizedBox(height: 5),
@@ -108,7 +107,7 @@ class _TabScreen4State extends State<TabScreen4> {
                                       'Not register',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 16),
+                                      fontSize: 20),
                                 ),
                               ),
                               Container(
@@ -119,101 +118,114 @@ class _TabScreen4State extends State<TabScreen4> {
                                       fontSize: 14),
                                 ),
                               ),
-                              Column(
-                                children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Icon(
-                                        Icons.phone_android,
-                                      ),
-                                      Text(widget.user.phone ??
-                                          'not registered'),
-                                    ],
+                              Container(height: 10),
+                              Container(
+                                width: 350,
+                                height: 200,
+                                child: Card(
+                                  color: Colors.white70,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                    side: BorderSide(color: Colors.grey),
                                   ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.rate_review,
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  RatingBar(
-                                    itemCount: 5,
-                                    itemSize: 12,
-                                    initialRating: double.parse(
-                                        widget.user.rating.toString() ?? 0.0),
-                                    itemPadding:
-                                        EdgeInsets.symmetric(horizontal: 2.0),
-                                    itemBuilder: (context, _) => Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
+                                  elevation: 20,
+                                  child: Padding(
+                                    padding: EdgeInsets.all(5.0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: <Widget>[
+                                        Row(
+                                          children: <Widget>[
+                                            Icon(
+                                              Icons.phone_android,
+                                            ),
+                                            SizedBox(width: 10),
+                                            Text(widget.user.phone ??
+                                                'not registered'),
+                                          ],
+                                        ),
+                                        Row(
+                                          //mainAxisAlignment: MainAxisAlignment.center,
+                                          children: <Widget>[
+                                            Icon(
+                                              Icons.rate_review,
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            RatingBar(
+                                              itemCount: 5,
+                                              itemSize: 12,
+                                              initialRating: double.parse(widget
+                                                      .user.rating
+                                                      .toString() ??
+                                                  0.0),
+                                              itemPadding: EdgeInsets.symmetric(
+                                                  horizontal: 2.0),
+                                              itemBuilder: (context, _) => Icon(
+                                                Icons.star,
+                                                color: Colors.amber,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          //mainAxisAlignment: MainAxisAlignment.center,
+                                          children: <Widget>[
+                                            Icon(
+                                              Icons.rounded_corner,
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text("ETrash Radius " +
+                                                    widget.user.radius +
+                                                    "KM" ??
+                                                'ETrash Radius 0 KM'),
+                                          ],
+                                        ),
+                                        Row(
+                                          //mainAxisAlignment: MainAxisAlignment.center,
+                                          children: <Widget>[
+                                            Icon(
+                                              Icons.credit_card,
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Flexible(
+                                              child: Text("You have " +
+                                                      widget.user.credit +
+                                                      " Credit" ??
+                                                  "You have 0 Credit"),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          //mainAxisAlignment: MainAxisAlignment.center,
+                                          children: <Widget>[
+                                            Icon(
+                                              Icons.location_on,
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Flexible(
+                                              child: Text(_currentAddress),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                ],
-                              ),
-                              Column(
-                                children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Icon(
-                                        Icons.rounded_corner,
-                                      ),
-                                      Text("ETrash Radius " +
-                                              widget.user.radius +
-                                              "KM" ??
-                                          'ETrash Radius 0 KM'),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Icon(
-                                        Icons.credit_card,
-                                      ),
-                                      SizedBox(
-                                        width: 5,
-                                      ),
-                                      Flexible(
-                                        child: Text("You have " +
-                                                widget.user.credit +
-                                                " Credit" ??
-                                            "You have 0 Credit"),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Center(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Icon(
-                                      Icons.location_on,
-                                    ),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Flexible(
-                                      child: Text(_currentAddress),
-                                    ),
-                                  ],
                                 ),
                               ),
                               SizedBox(
-                                height: 5,
+                                height: 25,
                               ),
                               Container(
-                                color: Colors.green,
+                                color: Colors.grey,
                                 child: Center(
                                   child: Text("My Profile ",
                                       style: TextStyle(
@@ -237,39 +249,103 @@ class _TabScreen4State extends State<TabScreen4> {
                   return Padding(
                     padding: EdgeInsets.all(2.0),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        MaterialButton(
-                          onPressed: _changeName,
-                          child: Text("CHANGE NAME"),
+                        Container(
+                          width: 450,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.grey[200]))),
+                          child: MaterialButton(
+                            onPressed: _changeName,
+                            child: Text("CHANGE NAME"),
+                          ),
                         ),
-                        MaterialButton(
-                          onPressed: _changePassword,
-                          child: Text("CHANGE PASSWORD"),
+                        SizedBox(height: 2.0),
+                        Container(
+                          width: 450,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.grey[200]))),
+                          child: MaterialButton(
+                            onPressed: _changePassword,
+                            child: Text("CHANGE PASSWORD"),
+                          ),
                         ),
-                        MaterialButton(
-                          onPressed: _changePhone,
-                          child: Text("CHANGE PHONE"),
+                        SizedBox(height: 2.0),
+                        Container(
+                          width: 450,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.grey[200]))),
+                          child: MaterialButton(
+                            onPressed: _changePhone,
+                            child: Text("CHANGE PHONE"),
+                          ),
                         ),
-                        MaterialButton(
-                          onPressed: _changeRadius,
-                          child: Text("CHANGE RADIUS"),
+                        SizedBox(height: 2.0),
+                        Container(
+                          width: 450,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.grey[200]))),
+                          child: MaterialButton(
+                            onPressed: _changeRadius,
+                            child: Text("CHANGE RADIUS"),
+                          ),
                         ),
-                        MaterialButton(
-                          onPressed: _loadPayment,
-                          child: Text("BUY CREDIT"),
+                        SizedBox(height: 2.0),
+                        Container(
+                          width: 450,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.grey[200]))),
+                          child: MaterialButton(
+                            onPressed: _loadPayment,
+                            child: Text("BUY CREDIT"),
+                          ),
                         ),
-                        MaterialButton(
-                          onPressed: _registerAccount,
-                          child: Text("REGISTER"),
+                        SizedBox(height: 2.0),
+                        Container(
+                          width: 450,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.grey[200]))),
+                          child: MaterialButton(
+                            onPressed: _registerAccount,
+                            child: Text("REGISTER"),
+                          ),
                         ),
-                        MaterialButton(
-                          onPressed: _gotologinPage,
-                          child: Text("LOG IN"),
+                        SizedBox(height: 2.0),
+                        Container(
+                          width: 450,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.grey[200]))),
+                          child: MaterialButton(
+                            onPressed: _gotologinPage,
+                            child: Text("LOG IN"),
+                          ),
                         ),
-                        MaterialButton(
-                          onPressed: _gotologout,
-                          child: Text("LOG OUT"),
-                        )
+                        SizedBox(height: 2.0),
+                        Container(
+                            width: 450,
+                            height: 50,
+                            decoration: BoxDecoration(
+                                border: Border(
+                                    bottom:
+                                        BorderSide(color: Colors.grey[200]))),
+                            child: MaterialButton(
+                              onPressed: _gotologout,
+                              child: Text("LOG OUT"),
+                            )),
                       ],
                     ),
                   );
@@ -774,10 +850,16 @@ class _TabScreen4State extends State<TabScreen4> {
                 Navigator.of(context).pop();
                 var now = new DateTime.now();
                 var formatter = new DateFormat('ddMMyyyyhhmmss-');
-                String formatted = formatter.format(now)+randomAlphaNumeric(10);
+                String formatted =
+                    formatter.format(now) + randomAlphaNumeric(10);
                 print(formatted);
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PaymentScreen(user:widget.user,orderid:formatted, val:_value)));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PaymentScreen(
+                            user: widget.user,
+                            orderid: formatted,
+                            val: _value)));
               },
             ),
             new FlatButton(
