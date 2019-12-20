@@ -256,11 +256,22 @@ class _TabScreen4State extends State<TabScreen4> {
                           height: 50,
                           decoration: BoxDecoration(
                               border: Border(
-                                  bottom: BorderSide(color: Colors.grey[200]))),
-                          child: MaterialButton(
-                            onPressed: _changeName,
-                            child: Text("CHANGE NAME"),
-                          ),
+                                  bottom: BorderSide(color: Colors.green[100]))),
+                          child: new Row(mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            SizedBox(width:20),
+                            Icon(Icons.edit, color: Colors.green[900]),
+                            SizedBox(width: 10),
+                            Text("NAME",style: TextStyle(fontSize: 15.0,)),
+                            SizedBox(width:280),
+                            new Container(
+                             child: GestureDetector(
+                            onTap: _changeName,
+                            child: Icon(Icons.arrow_forward_ios),
+                             ),
+
+                            )
+                          ],)
                         ),
                         SizedBox(height: 2.0),
                         Container(
@@ -268,11 +279,21 @@ class _TabScreen4State extends State<TabScreen4> {
                           height: 50,
                           decoration: BoxDecoration(
                               border: Border(
-                                  bottom: BorderSide(color: Colors.grey[200]))),
-                          child: MaterialButton(
-                            onPressed: _changePassword,
-                            child: Text("CHANGE PASSWORD"),
-                          ),
+                                  bottom: BorderSide(color: Colors.green[100]))),
+                          child: new Row(mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            SizedBox(width:20),
+                            Icon(Icons.edit, color: Colors.green[900]),
+                            SizedBox(width: 10),
+                            Text("PASSWORD",style: TextStyle(fontSize: 15.0,)),
+                            SizedBox(width:242),
+                            new Container(
+                             child: GestureDetector(
+                            onTap: _changePassword,
+                            child: Icon(Icons.arrow_forward_ios),
+                             ),
+                            )
+                          ],)
                         ),
                         SizedBox(height: 2.0),
                         Container(
@@ -280,11 +301,21 @@ class _TabScreen4State extends State<TabScreen4> {
                           height: 50,
                           decoration: BoxDecoration(
                               border: Border(
-                                  bottom: BorderSide(color: Colors.grey[200]))),
-                          child: MaterialButton(
-                            onPressed: _changePhone,
-                            child: Text("CHANGE PHONE"),
-                          ),
+                                  bottom: BorderSide(color: Colors.green[100]))),
+                          child: new Row(mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            SizedBox(width:20),
+                            Icon(Icons.edit, color: Colors.green[900]),
+                            SizedBox(width: 10),
+                            Text("PHONE",style: TextStyle(fontSize: 15.0,)),
+                            SizedBox(width:272),
+                            new Container(
+                             child: GestureDetector(
+                            onTap: _changePhone,
+                            child: Icon(Icons.arrow_forward_ios),
+                             ),
+                            )
+                          ],)
                         ),
                         SizedBox(height: 2.0),
                         Container(
@@ -292,11 +323,21 @@ class _TabScreen4State extends State<TabScreen4> {
                           height: 50,
                           decoration: BoxDecoration(
                               border: Border(
-                                  bottom: BorderSide(color: Colors.grey[200]))),
-                          child: MaterialButton(
-                            onPressed: _changeRadius,
-                            child: Text("CHANGE RADIUS"),
-                          ),
+                                  bottom: BorderSide(color: Colors.green[100]))),
+                          child: new Row(mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            SizedBox(width:20),
+                            Icon(Icons.edit, color: Colors.green[900]),
+                            SizedBox(width: 10),
+                            Text("RADIUS",style: TextStyle(fontSize: 15.0,)),
+                            SizedBox(width:270),
+                            new Container(
+                             child: GestureDetector(
+                            onTap: _changeRadius,
+                            child: Icon(Icons.arrow_forward_ios),
+                             ),
+                            )
+                          ],)
                         ),
                         SizedBox(height: 2.0),
                         Container(
@@ -304,11 +345,21 @@ class _TabScreen4State extends State<TabScreen4> {
                           height: 50,
                           decoration: BoxDecoration(
                               border: Border(
-                                  bottom: BorderSide(color: Colors.grey[200]))),
-                          child: MaterialButton(
-                            onPressed: _loadPayment,
-                            child: Text("BUY CREDIT"),
-                          ),
+                                  bottom: BorderSide(color: Colors.green[100]))),
+                          child: new Row(mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            SizedBox(width:20),
+                            Icon(Icons.add, color: Colors.green[900]),
+                            SizedBox(width: 10),
+                            Text("CREDIT",style: TextStyle(fontSize: 15.0,)),
+                            SizedBox(width:270),
+                            new Container(
+                             child: GestureDetector(
+                            onTap: _loadPayment,
+                            child: Icon(Icons.arrow_forward_ios),
+                             ),
+                            )
+                          ],)
                         ),
                         SizedBox(height: 2.0),
                         Container(
@@ -316,11 +367,21 @@ class _TabScreen4State extends State<TabScreen4> {
                           height: 50,
                           decoration: BoxDecoration(
                               border: Border(
-                                  bottom: BorderSide(color: Colors.grey[200]))),
-                          child: MaterialButton(
-                            onPressed: _registerAccount,
-                            child: Text("REGISTER"),
-                          ),
+                                  bottom: BorderSide(color: Colors.green[100]))),
+                          child: new Row(mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            SizedBox(width:20),
+                            Icon(Icons.person_add, color: Colors.green[900]),
+                            SizedBox(width: 10),
+                            Text("REGISTER",style: TextStyle(fontSize: 15.0,)),
+                            SizedBox(width:255),
+                            new Container(
+                             child: GestureDetector(
+                            onTap: _registerAccount,
+                            child: Icon(Icons.arrow_forward_ios),
+                             ),
+                            )
+                          ],)
                         ),
                         SizedBox(height: 2.0),
                         Container(
@@ -328,11 +389,21 @@ class _TabScreen4State extends State<TabScreen4> {
                           height: 50,
                           decoration: BoxDecoration(
                               border: Border(
-                                  bottom: BorderSide(color: Colors.grey[200]))),
-                          child: MaterialButton(
-                            onPressed: _gotologinPage,
-                            child: Text("LOG IN"),
-                          ),
+                                  bottom: BorderSide(color: Colors.green[100]))),
+                          child: new Row(mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            SizedBox(width:20),
+                            Icon(Icons.lock_outline, color: Colors.green[900]),
+                            SizedBox(width: 10),
+                            Text("LOG IN",style: TextStyle(fontSize: 15.0,)),
+                            SizedBox(width:275),
+                            new Container(
+                             child: GestureDetector(
+                            onTap: _gotologinPage,
+                            child: Icon(Icons.arrow_forward_ios),
+                             ),
+                            )
+                          ],)
                         ),
                         SizedBox(height: 2.0),
                         Container(
@@ -341,11 +412,21 @@ class _TabScreen4State extends State<TabScreen4> {
                             decoration: BoxDecoration(
                                 border: Border(
                                     bottom:
-                                        BorderSide(color: Colors.grey[200]))),
-                            child: MaterialButton(
-                              onPressed: _gotologout,
-                              child: Text("LOG OUT"),
-                            )),
+                                        BorderSide(color: Colors.green[100]))),
+                            child: new Row(mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            SizedBox(width:20),
+                            Icon(Icons.lock_open, color: Colors.green[900]),
+                            SizedBox(width: 10),
+                            Text("LOG OUT",style: TextStyle(fontSize: 15.0,)),
+                            SizedBox(width:260),
+                            new Container(
+                             child: GestureDetector(
+                            onTap: _gotologout,
+                            child: Icon(Icons.arrow_forward_ios),
+                             ),
+                            )
+                          ],)),
                       ],
                     ),
                   );
@@ -660,7 +741,7 @@ class _TabScreen4State extends State<TabScreen4> {
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          title: new Text("Change phone for" + widget.user.name),
+          title: new Text("Change phone for " + widget.user.name),
           content: new TextField(
               keyboardType: TextInputType.phone,
               controller: phoneController,
@@ -790,8 +871,8 @@ class _TabScreen4State extends State<TabScreen4> {
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          title: new Text("Go to login page?" + widget.user.name),
-          content: new Text("Are your sure?"),
+          title: new Text("Are you sure you want to log out? " + widget.user.name),
+          //content: new Text("Are your sure?"),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             new FlatButton(
