@@ -40,7 +40,7 @@ class _TabScreen2State extends State<TabScreen2> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: Colors.green));
+        SystemUiOverlayStyle(statusBarColor: Colors.black));
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
