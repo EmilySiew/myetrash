@@ -194,6 +194,9 @@ class _TabScreen3State extends State<TabScreen3> {
                       child: Card(
                         elevation: 2,
                         child: InkWell(
+                          onLongPress: () => _onCancelEtrash(
+                              data[index]['etid'].toString(),
+                              data[index]['ettitle'].toString()),
                           child: Padding(
                             padding: const EdgeInsets.all(2.0),
                             child: Row(
@@ -324,6 +327,67 @@ class _TabScreen3State extends State<TabScreen3> {
   Future<Null> refreshList() async {
     await Future.delayed(Duration(seconds: 2));
     this.makeRequest();
+    return null;
+  }
+
+  void _onCancelEtrash(String etid, String etname) {
+    print("Cancel " + etid);
+    _showDialog(etid, etname);
+  }
+
+  void _showDialog(String etid, String etname) {
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text("Cancel " + etname),
+          content: new Text("Are you sure you want to cancel accepted etrash?"),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FlatButton(
+              child: new Text("Yes"),
+              onPressed: () {
+                Navigator.of(context).pop();
+                cancelEtrash(etid);
+              },
+            ),
+            new FlatButton(
+              child: new Text("No"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+   
+   Future<String> cancelEtrash(String etid) async {
+    String urlLoadJobs = "http://itschizo.com/emily_siew/myETrash/php/cancelETrash.php";
+    ProgressDialog pr = new ProgressDialog(context,
+        type: ProgressDialogType.Normal, isDismissible: false);
+    pr.style(message: "Canceling ETrash");
+    pr.show();
+     
+    http.post(urlLoadJobs, body: {
+      "etid": etid,
+    }).then((res) {
+      print(res.body);
+      if (res.body == "success") {
+        Toast.show("Success", context,
+            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+        init();
+      } else {
+        Toast.show("Failed", context,
+            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      }
+    }).catchError((err) {
+      print(err);
+      pr.dismiss();
+    });
     return null;
   }
 
