@@ -883,7 +883,7 @@ class _TabScreen4State extends State<TabScreen4> {
                 await prefs.setString('email', '');
                 await prefs.setString('pass', '');
                 print("LOGOUT");
-                Navigator.pop(context,
+                Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SplashScreen()));
               },
             ),
